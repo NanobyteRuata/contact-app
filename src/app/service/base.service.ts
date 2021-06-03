@@ -11,7 +11,33 @@ export class BaseService {
 
   async get(url: string) {
     return this._http
-      .get(`${ApiConstants.BASE_URL}/` + url)
+      .get(`${ApiConstants.BASE_URL}/${url}`)
+      .toPromise()
+      .then((res) => {
+        return this.success(res);
+      })
+      .catch((err) => {
+        console.log(err);
+        return this.error(err);
+      });
+  }
+
+  async post(url: string, data: any) {
+    return this._http
+      .post(`${ApiConstants.BASE_URL}/${url}`, data)
+      .toPromise()
+      .then((res) => {
+        return this.success(res);
+      })
+      .catch((err) => {
+        console.log(err);
+        return this.error(err);
+      });
+  }
+
+  async put(url: string, data: any) {
+    return this._http
+      .put(`${ApiConstants.BASE_URL}/${url}`, data)
       .toPromise()
       .then((res) => {
         return this.success(res);
@@ -35,14 +61,14 @@ export class BaseService {
       });
   }
 
-  success(res: any) {
+  success(res: any): any {
     return {
       success: true,
       data: res,
     };
   }
 
-  error(err: any) {
+  error(err: any): any {
     return {
       success: false,
       error: err,

@@ -1,66 +1,7 @@
 <nav class="navbar navbar-dark bg-info">
   <a routerLink="/contacts" class="navbar-brand"
-    ><fa-icon [icon]="faAddressBook"></fa-icon> Contacts</a
+    ><i class="fas fa-address-book"></i> Contacts</a
   >
 </nav>
 
-<div class="container">
-  <div class="col">
-    <!-- Header -->
-    <div class="row justify-content-between mt-3">
-      <!-- Search Input group -->
-      <div class="col-6">
-        <div class="row">
-          <input
-            type="search"
-            placeholder="Search"
-            class="form-control"
-            [(ngModel)]="searchText"
-            (ngModelChange)="onSearchTextChange($event)"
-          />
-        </div>
-      </div>
-
-      <!-- New Contact Button -->
-      <button type="button" class="btn btn-success" (click)="getContacts()">
-        <fa-icon [icon]="faPlus"></fa-icon> New Contact
-      </button>
-    </div>
-
-    <!-- Body -->
-    <div class="row">
-      <div class="col mt-3">
-        <!-- Loading Indicator -->
-        <div class="row justify-content-center">
-          <div *ngIf="isContactsLoading" class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
-        </div>
-
-        <!-- No Data Alert -->
-        <div *ngIf="!isContactsLoading && contactList.length == 0" class="row">
-          <div class="alert alert-primary col" role="alert">
-            <fa-icon [icon]="faInfoCircle"></fa-icon> You have no contacts
-            currently
-          </div>
-        </div>
-
-        <!-- Error Alert -->
-        <div *ngIf="isError" class="row">
-          <div class="alert alert-danger col" role="alert">
-            <fa-icon [icon]="faInfoCircle"></fa-icon> Error fetching data
-          </div>
-        </div>
-
-        <!-- List of Cards -->
-        <div *ngFor="let contact of contactList" class="card row">
-          <!-- Card -->
-          <app-contact-card
-            [contact]="contact"
-            (onDelete)="onContactDelete($event)"
-          ></app-contact-card>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<router-outlet></router-outlet>

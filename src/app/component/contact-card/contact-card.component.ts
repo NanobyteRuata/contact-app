@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Contact } from 'src/app/model/contact-model';
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { ContactService } from 'src/app/service/contact.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-card',
@@ -12,16 +12,18 @@ export class ContactCardComponent implements OnInit {
   @Input() contact: Contact;
   @Output() onDelete = new EventEmitter();
 
-  faEdit = faEdit;
-  faTrashAlt = faTrashAlt;
-
   isDeleteLoading: boolean = false;
 
-  constructor(private _contactService: ContactService) {}
+  constructor(
+    private _contactService: ContactService,
+    private _router: Router
+  ) {}
 
   ngOnInit(): void {}
 
-  onEditClick() {}
+  onEditClick() {
+    this._router.navigate([`/contacts`, this.contact.id]);
+  }
 
   async onDeleteClick() {
     this.isDeleteLoading = true;

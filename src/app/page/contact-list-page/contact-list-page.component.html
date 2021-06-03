@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="col">
+    <!-- Header -->
+    <div class="row justify-content-between mt-3">
+      <!-- Search Input group -->
+      <div class="col-6">
+        <div class="row">
+          <input
+            type="search"
+            placeholder="Search"
+            class="form-control"
+            [(ngModel)]="searchText"
+            (ngModelChange)="onSearchTextChange($event)"
+          />
+        </div>
+      </div>
+
+      <!-- New Contact Button -->
+      <button type="button" class="btn btn-success" routerLink="/contacts/new">
+        <i class="fas fa-plus"></i> New Contact
+      </button>
+    </div>
+
+    <!-- Body -->
+    <div class="row">
+      <div class="col mt-3">
+        <!-- Loading Indicator -->
+        <div class="row justify-content-center">
+          <div *ngIf="isContactsLoading" class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+
+        <!-- No Data Alert -->
+        <div *ngIf="!isContactsLoading && contactList.length == 0" class="row">
+          <div class="alert alert-primary col" role="alert">
+            <i class="fas fa-info-circle"></i> You have no contacts currently
+          </div>
+        </div>
+
+        <!-- Error Alert -->
+        <div *ngIf="isError" class="row">
+          <div class="alert alert-danger col" role="alert">
+            <i class="fas fa-info-circle"></i> Error fetching data
+          </div>
+        </div>
+
+        <!-- List of Cards -->
+        <div *ngFor="let contact of contactList" class="card row">
+          <!-- Card -->
+          <app-contact-card
+            [contact]="contact"
+            (onDelete)="onContactDelete($event)"
+          ></app-contact-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

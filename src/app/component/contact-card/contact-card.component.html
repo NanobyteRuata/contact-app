@@ -13,10 +13,10 @@
         role="status"
         aria-hidden="true"
       ></span>
-      <fa-icon *ngIf="!isDeleteLoading" [icon]="faTrashAlt"></fa-icon> Delete
+      <i *ngIf="!isDeleteLoading" class="fas fa-trash-alt"></i> Delete
     </button>
     <button type="button" class="btn btn-warning mr-3" (click)="onEditClick()">
-      <fa-icon [icon]="faEdit"></fa-icon> Edit
+      <i class="fas fa-edit"></i> Edit
     </button>
   </div>
   <div class="row ml-0">

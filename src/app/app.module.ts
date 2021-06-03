@@ -6,22 +6,28 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ContactsPageComponent } from './page/contacts-page/contacts-page.component';
 import { NotFoundPageComponent } from './page/not-found-page/not-found-page.component';
 import { ContactCardComponent } from './component/contact-card/contact-card.component';
 import { ContactDetailPageComponent } from './page/contact-detail-page/contact-detail-page.component';
+import { ContactListPageComponent } from './page/contact-list-page/contact-list-page.component';
 
 @NgModule({
-  declarations: [AppComponent, ContactsPageComponent, NotFoundPageComponent, ContactCardComponent, ContactDetailPageComponent],
+  declarations: [
+    AppComponent,
+    ContactsPageComponent,
+    NotFoundPageComponent,
+    ContactCardComponent,
+    ContactDetailPageComponent,
+    ContactListPageComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    FontAwesomeModule,
     HttpClientModule,
   ],
   providers: [],

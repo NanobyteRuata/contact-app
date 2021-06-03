@@ -2,7 +2,7 @@
   "contacts": [
     {
       "id": 0,
-      "name": "Rem Ruat",
+      "name": "Rem Ruat Thanga",
       "email": "remruat@mail.com",
       "phone": "+95 9 1234 123"
     },
@@ -11,6 +11,24 @@
       "name": "Boke Ei",
       "email": "bokeei@mail.com",
       "phone": "+95 9 4321 432"
+    },
+    {
+      "name": "Kyaw Kyaw",
+      "email": "kyawkyaw@mail.com",
+      "phone": "+95 9 2345 543",
+      "id": 2
+    },
+    {
+      "name": "Moe Moe",
+      "email": "moemoe@mail.com",
+      "phone": "+95 9 3456 654",
+      "id": 3
+    },
+    {
+      "phone": "+95 9 5678 876",
+      "name": "Gok Kyar",
+      "email": "gokkyar@mail.com",
+      "id": 4
     }
   ]
 }

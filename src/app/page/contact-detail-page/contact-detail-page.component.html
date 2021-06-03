@@ -1,1 +1,90 @@
-<p>contact-detail-page works!</p>
+<div class="container">
+  <div class="col">
+    <div class="card mt-3">
+      <div class="card-body">
+        <form class="col">
+          <div *ngIf="errorText != null" class="row">
+            <div class="alert alert-danger col" role="alert">
+              <i class="fas fa-info-circle"></i> {{ errorText }}
+            </div>
+          </div>
+          <!-- Name -->
+          <div class="form-group row">
+            <label class="col-3 col-form-label text-right"
+              >Full Name <span class="text-danger">*</span></label
+            >
+            <div class="col-9">
+              <input
+                type="text"
+                placeholder="Name"
+                class="form-control"
+                [ngClass]="nameInvalidText ? 'is-invalid' : ''"
+                [(ngModel)]="contact.name"
+                [ngModelOptions]="{ standalone: true }"
+              />
+              <div *ngIf="nameInvalidText" class="text-danger">
+                {{ nameInvalidText }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group row">
+            <label class="col-3 col-form-label text-right"
+              >Email <span class="text-danger">*</span></label
+            >
+            <div class="col-9">
+              <input
+                type="text"
+                placeholder="Email"
+                class="form-control"
+                [ngClass]="emailInvalidText ? 'is-invalid' : ''"
+                [(ngModel)]="contact.email"
+                [ngModelOptions]="{ standalone: true }"
+              />
+              <div *ngIf="emailInvalidText" class="text-danger">
+                {{ emailInvalidText }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group row">
+            <label class="col-3 col-form-label text-right"
+              >Phone <span class="text-danger">*</span></label
+            >
+            <div class="col-9">
+              <input
+                type="tel"
+                placeholder="Phone number"
+                class="form-control"
+                [ngClass]="phoneInvalidText ? 'is-invalid' : ''"
+                [(ngModel)]="contact.phone"
+                [ngModelOptions]="{ standalone: true }"
+              />
+              <div *ngIf="phoneInvalidText" class="text-danger">
+                {{ phoneInvalidText }}
+              </div>
+            </div>
+          </div>
+          <div class="row-12 text-right">
+            <button
+              type="button"
+              class="btn btn-outline-danger mr-2"
+              (click)="onCancelClick($event)"
+            >
+              <i class="fas fa-times"></i> Cancel
+            </button>
+            <button
+              type="submit"
+              class="btn btn-success"
+              (click)="onSaveClick($event)"
+            >
+              <i class="fas fa-save"></i> Save
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
