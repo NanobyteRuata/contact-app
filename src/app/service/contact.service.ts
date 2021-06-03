@@ -8,7 +8,10 @@ import { ApiConstants } from '../constants/api-constants';
 export class ContactService {
   constructor(private _baseService: BaseService) {}
 
-  getContacts() {
-    return this._baseService.get(`${ApiConstants.BASE_URL}/contacts`);
+  getContacts(keyword?: string) {
+    return this._baseService.get(
+      `${ApiConstants.BASE_URL}/contacts` +
+        (keyword == null || keyword?.length == 0 ? '' : `?q=${keyword}`)
+    );
   }
 }
