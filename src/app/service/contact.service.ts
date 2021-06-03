@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
-import { ApiConstants } from '../constants/api-constants';
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +9,12 @@ export class ContactService {
 
   getContacts(keyword?: string) {
     return this._baseService.get(
-      `${ApiConstants.BASE_URL}/contacts` +
+      'contacts' +
         (keyword == null || keyword?.length == 0 ? '' : `?q=${keyword}`)
     );
+  }
+
+  deleteContact(id: number) {
+    return this._baseService.delete(`contacts/${id}`);
   }
 }

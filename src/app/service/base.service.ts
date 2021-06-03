@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { resolve } from '@angular/compiler-cli/src/ngtsc/file_system';
+import { ApiConstants } from '../constants/api-constants';
 
 @Injectable({
   providedIn: 'root',
@@ -8,22 +9,43 @@ import { resolve } from '@angular/compiler-cli/src/ngtsc/file_system';
 export class BaseService {
   constructor(private _http: HttpClient) {}
 
-  get(url: string) {
+  async get(url: string) {
     return this._http
-      .get(url)
+      .get(`${ApiConstants.BASE_URL}/` + url)
       .toPromise()
       .then((res) => {
-        return {
-          success: true,
-          data: res,
-        };
+        return this.success(res);
       })
       .catch((err) => {
         console.log(err);
-        return {
-          success: false,
-          error: err,
-        };
+        return this.error(err);
       });
+  }
+
+  async delete(url: string) {
+    return this._http
+      .delete(`${ApiConstants.BASE_URL}/` + url)
+      .toPromise()
+      .then((res) => {
+        return this.success(res);
+      })
+      .catch((err) => {
+        console.log(err);
+        return this.error(err);
+      });
+  }
+
+  success(res: any) {
+    return {
+      success: true,
+      data: res,
+    };
+  }
+
+  error(err: any) {
+    return {
+      success: false,
+      error: err,
+    };
   }
 }

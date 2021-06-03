@@ -48,4 +48,13 @@ export class ContactsPageComponent implements OnInit {
   onSearchTextChange(value: string) {
     this.getContacts(value);
   }
+
+  onContactDelete(event: any) {
+    console.log('on contact delete: ', event);
+    if (event.success) {
+      this.contactList = this.contactList.filter(
+        (contact: Contact) => contact.id != event.data.id
+      );
+    }
+  }
 }

@@ -55,7 +55,10 @@
         <!-- List of Cards -->
         <div *ngFor="let contact of contactList" class="card row">
           <!-- Card -->
-          <app-contact-card [contact]="contact"></app-contact-card>
+          <app-contact-card
+            [contact]="contact"
+            (onDelete)="onContactDelete($event)"
+          ></app-contact-card>
         </div>
       </div>
     </div>
