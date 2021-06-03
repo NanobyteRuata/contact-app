@@ -3,8 +3,6 @@ import {
   faAddressBook,
   faPlus,
   faInfoCircle,
-  faEdit,
-  faTrashAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { Contact } from 'src/app/model/contact-model';
 import { ContactService } from 'src/app/service/contact.service';
@@ -19,8 +17,6 @@ export class ContactsPageComponent implements OnInit {
   faAddressBook = faAddressBook;
   faPlus = faPlus;
   faInfoCircle = faInfoCircle;
-  faEdit = faEdit;
-  faTrashAlt = faTrashAlt;
 
   isContactsLoading: boolean = false;
   isError: boolean = false;

@@ -11,9 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ContactsPageComponent } from './page/contacts-page/contacts-page.component';
 import { NotFoundPageComponent } from './page/not-found-page/not-found-page.component';
+import { ContactCardComponent } from './component/contact-card/contact-card.component';
 
 @NgModule({
-  declarations: [AppComponent, ContactsPageComponent, NotFoundPageComponent],
+  declarations: [AppComponent, ContactsPageComponent, NotFoundPageComponent, ContactCardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

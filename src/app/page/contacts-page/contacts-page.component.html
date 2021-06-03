@@ -55,23 +55,7 @@
         <!-- List of Cards -->
         <div *ngFor="let contact of contactList" class="card row">
           <!-- Card -->
-          <div class="card-body col">
-            <div class="row justify-content-between">
-              <h5 class="card-title col">{{ contact.name }}</h5>
-              <button type="button" class="btn btn-outline-danger mr-2">
-                <fa-icon [icon]="faTrashAlt"></fa-icon> Delete
-              </button>
-              <button type="button" class="btn btn-warning mr-3">
-                <fa-icon [icon]="faEdit"></fa-icon> Edit
-              </button>
-            </div>
-            <div class="row ml-0">
-              {{ contact.phone }}
-            </div>
-            <div class="row ml-0">
-              {{ contact.email }}
-            </div>
-          </div>
+          <app-contact-card [contact]="contact"></app-contact-card>
         </div>
       </div>
     </div>
