@@ -5,6 +5,7 @@ import {
   faTimesCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { Contact } from 'src/app/model/contact-model';
+import { ContactService } from 'src/app/service/contact.service';
 
 @Component({
   selector: 'app-contacts-page',
@@ -17,9 +18,26 @@ export class ContactsPageComponent implements OnInit {
   faPlus = faPlus;
   faTimesCircle = faTimesCircle;
 
-  contactList: any[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  isContactsLoading: boolean = false;
+  contactList: any[] = [];
 
-  constructor() {}
+  constructor(private _contactService: ContactService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getContacts();
+  }
+
+  async getContacts() {
+    this.isContactsLoading = true;
+    this.contactList = [];
+
+    let result: any = await this._contactService.getContacts();
+    if (result.success) {
+      this.contactList = result.data;
+    } else {
+      // TODO: Show error somehow
+    }
+
+    this.isContactsLoading = false;
+  }
 }

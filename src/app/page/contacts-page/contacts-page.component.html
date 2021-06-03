@@ -18,7 +18,7 @@
         </div>
 
         <!-- New Contact Button -->
-        <button type="button" class="btn btn-success">
+        <button type="button" class="btn btn-success" (click)="getContacts()">
           <fa-icon [icon]="faPlus"></fa-icon> New Contact
         </button>
       </div>
@@ -26,6 +26,16 @@
       <!-- Body -->
       <div class="row">
         <div class="col">
+          <div *ngIf="isContactsLoading" class="progress">
+            <div
+              class="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar"
+              aria-valuenow="75"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="width: 75%"
+            ></div>
+          </div>
           <div *ngFor="let contact of contactList" class="card row mt-3">
             <div class="card-body">This is some text within a card body.</div>
           </div>
