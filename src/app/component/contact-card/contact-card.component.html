@@ -1,6 +1,7 @@
 <div class="card-body col">
   <div class="row justify-content-between">
     <h5 class="card-title col">{{ contact.name }}</h5>
+
     <button
       type="button"
       [disabled]="isDeleteLoading"
@@ -19,10 +20,23 @@
       <i class="fas fa-edit"></i> Edit
     </button>
   </div>
+
   <div class="row ml-0">
     {{ contact.phone }}
   </div>
+
   <div class="row ml-0">
     {{ contact.email }}
   </div>
 </div>
+
+<app-alert-dialog
+  [(show)]="showDeleteConfirm"
+  title="Confirm"
+  type="warning"
+  content="Are you sure you want to delete?"
+  [showCancel]="true"
+  cancelText="No"
+  okText="Yes"
+  (onOk)="onDeleteConfirm()"
+></app-alert-dialog>

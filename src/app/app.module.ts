@@ -14,6 +14,7 @@ import { NotFoundPageComponent } from './page/not-found-page/not-found-page.comp
 import { ContactCardComponent } from './component/contact-card/contact-card.component';
 import { ContactDetailPageComponent } from './page/contact-detail-page/contact-detail-page.component';
 import { ContactListPageComponent } from './page/contact-list-page/contact-list-page.component';
+import { AlertDialogComponent } from './component/dialog/alert-dialog/alert-dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ContactListPageComponent } from './page/contact-list-page/contact-list-
     ContactCardComponent,
     ContactDetailPageComponent,
     ContactListPageComponent,
+    AlertDialogComponent,
   ],
   imports: [
     BrowserModule,

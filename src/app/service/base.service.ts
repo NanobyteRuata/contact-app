@@ -10,55 +10,75 @@ export class BaseService {
   constructor(private _http: HttpClient) {}
 
   async get(url: string) {
-    return this._http
-      .get(`${ApiConstants.BASE_URL}/${url}`)
-      .toPromise()
-      .then((res) => {
-        return this.success(res);
-      })
-      .catch((err) => {
-        console.log(err);
-        return this.error(err);
-      });
+    try {
+      return this._http
+        .get(`${ApiConstants.BASE_URL}/${url}`)
+        .toPromise()
+        .then((res) => {
+          return this.success(res);
+        })
+        .catch((err) => {
+          console.log(err);
+          return this.error(err);
+        });
+    } catch (err) {
+      console.log(err);
+      return this.error(err);
+    }
   }
 
   async post(url: string, data: any) {
-    return this._http
-      .post(`${ApiConstants.BASE_URL}/${url}`, data)
-      .toPromise()
-      .then((res) => {
-        return this.success(res);
-      })
-      .catch((err) => {
-        console.log(err);
-        return this.error(err);
-      });
+    try {
+      return this._http
+        .post(`${ApiConstants.BASE_URL}/${url}`, data)
+        .toPromise()
+        .then((res) => {
+          return this.success(res);
+        })
+        .catch((err) => {
+          console.log(err);
+          return this.error(err);
+        });
+    } catch (err) {
+      console.log(err);
+      return this.error(err);
+    }
   }
 
   async put(url: string, data: any) {
-    return this._http
-      .put(`${ApiConstants.BASE_URL}/${url}`, data)
-      .toPromise()
-      .then((res) => {
-        return this.success(res);
-      })
-      .catch((err) => {
-        console.log(err);
-        return this.error(err);
-      });
+    try {
+      return this._http
+        .put(`${ApiConstants.BASE_URL}/${url}`, data)
+        .toPromise()
+        .then((res) => {
+          return this.success(res);
+        })
+        .catch((err) => {
+          console.log(err);
+          return this.error(err);
+        });
+    } catch (err) {
+      console.log(err);
+      return this.error(err);
+    }
   }
 
   async delete(url: string) {
-    return this._http
-      .delete(`${ApiConstants.BASE_URL}/` + url)
-      .toPromise()
-      .then((res) => {
-        return this.success(res);
-      })
-      .catch((err) => {
-        console.log(err);
-        return this.error(err);
-      });
+    try {
+      return this._http
+        .delete(`${ApiConstants.BASE_URL}/` + url)
+        .toPromise()
+        .then((res) => {
+          return this.success(res);
+        })
+        .catch((err) => {
+          console.log(err);
+          return this.error(err);
+        });
+    } catch (err) {
+      console.log(err);
+      return this.error(err);
+    }
   }
 
   success(res: any): any {

@@ -2,11 +2,6 @@
   <div class="col">
     <div class="card mt-3">
       <div class="card-body">
-        <div *ngIf="errorText != null" class="row">
-          <div class="alert alert-danger col" role="alert">
-            <i class="fas fa-info-circle"></i> {{ errorText }}
-          </div>
-        </div>
         <form
           *ngIf="isInitialized"
           class="col"
@@ -115,3 +110,10 @@
     </div>
   </div>
 </div>
+
+<app-alert-dialog
+  [(show)]="showAlert"
+  title="Error"
+  type="error"
+  [content]="errorText"
+></app-alert-dialog>

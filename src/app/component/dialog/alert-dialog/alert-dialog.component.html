@@ -1,0 +1,70 @@
+<div
+  class="modal fade"
+  [ngClass]="{
+    show: show,
+    'pr-2': show,
+    'd-block': show
+  }"
+  id="exampleModalLive"
+  tabindex="-1"
+  aria-labelledby="exampleModalLiveLabel"
+  aria-modal="true"
+  role="dialog"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5
+          class="modal-title"
+          [ngClass]="
+            type == 'success'
+              ? 'text-success'
+              : type == 'error'
+              ? 'text-danger'
+              : 'text-warning'
+          "
+        >
+          <i class="fa fa-info-circle"></i> {{ title }}
+        </h5>
+        <button
+          *ngIf="showClose"
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          (click)="onCloseClick($event)"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{ content }}</p>
+      </div>
+      <div class="modal-footer">
+        <button
+          *ngIf="showCancel"
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="onCancelClick($event)"
+        >
+          {{ cancelText }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="onOkClick($event)"
+        >
+          {{ okText }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal-backdrop fade"
+  [ngClass]="{
+    show: show,
+    'd-none': !show
+  }"
+></div>

@@ -16,15 +16,3 @@
 
 - You can run the project in development mode using `ng serve`.
 - To build the project, run `ng build` and you will see the compiled project inside `/dist` folder.
-
-## The Application
-
-- This is a very basic contacts management application.
-  <img src="/src/assets/home-new.png" alt="Contacts Home Page"/>
-- You can see all your contacts if you have some.
-- If you don't have any contacts yet, you can add new contact by clicking the `Create New` button at the top right corner of the page to navigate to a seperate page where you can fill up necessary data and save new contact.
-  <img src="/src/assets/new.png" alt="Create New Contact Page"/>
-  <img src="/src/assets/home.png" alt="Contacts Home Page"/>
-- You can delete existing contact by clicking the `Delete` button on each contacts on the contacts home page.
-- You can also edit existing contact by clicking the `Edit` button on each contacts to edit page.
-  <img src="/src/assets/detail.png" alt="Edit Contacts Page"/>

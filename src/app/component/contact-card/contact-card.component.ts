@@ -13,6 +13,7 @@ export class ContactCardComponent implements OnInit {
   @Output() onDelete = new EventEmitter();
 
   isDeleteLoading: boolean = false;
+  showDeleteConfirm: boolean = false;
 
   constructor(
     private _contactService: ContactService,
@@ -25,7 +26,11 @@ export class ContactCardComponent implements OnInit {
     this._router.navigate([`/contacts/details/`, this.contact.id]);
   }
 
-  async onDeleteClick() {
+  onDeleteClick() {
+    this.showDeleteConfirm = true;
+  }
+
+  async onDeleteConfirm() {
     this.isDeleteLoading = true;
 
     let result = await this._contactService.deleteContact(this.contact.id);

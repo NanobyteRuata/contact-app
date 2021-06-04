@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -28,7 +28,8 @@ export class ContactDetailPageComponent implements OnInit {
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
-    private _contactService: ContactService
+    private _contactService: ContactService,
+    private _cdf: ChangeDetectorRef
   ) {
     this.contact = new Contact();
   }
@@ -54,6 +55,7 @@ export class ContactDetailPageComponent implements OnInit {
     }
 
     this.isLoading = false;
+    this._cdf.detectChanges();
   }
 
   initializeForm() {
@@ -122,6 +124,7 @@ export class ContactDetailPageComponent implements OnInit {
     }
 
     this.isLoading = false;
+    this._cdf.detectChanges();
   }
 
   phoneValidator(): ValidatorFn {
@@ -138,7 +141,9 @@ export class ContactDetailPageComponent implements OnInit {
       : typeof error == 'string'
       ? error
       : JSON.stringify(error);
+    this.showAlert = true;
   }
+  showAlert: boolean = false;
 
   onCancelClick(event: any) {
     this._router.navigateByUrl('/contacts');
