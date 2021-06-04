@@ -21,8 +21,7 @@
 
 - This is a very basic contacts management application.
   <img src="/src/assets/home-new.png" alt="Contacts Home Page"/>
-- You can see all your contacts if you have some.
-- If you don't have any contacts yet, you can add new contact by clicking the `Create New` button at the top right corner of the page to navigate to a seperate page where you can fill up necessary data and save new contact.
+- You can add new contact by clicking the `Create New` button at the top right corner of the page to navigate to a seperate page where you can fill up necessary data and save new contact.
   <img src="/src/assets/new.png" alt="Create New Contact Page"/>
   <img src="/src/assets/home.png" alt="Contacts Home Page"/>
 - You can delete existing contact by clicking the `Delete` button on each contacts on the contacts home page.
