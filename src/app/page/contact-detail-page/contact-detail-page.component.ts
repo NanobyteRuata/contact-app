@@ -19,6 +19,7 @@ import { ContactService } from 'src/app/service/contact.service';
 export class ContactDetailPageComponent implements OnInit {
   contact: Contact;
   isLoading: boolean = false;
+  isInitialized: boolean = false;
   errorText: string = null;
   emailInvalidText: string = null;
   phoneInvalidText: string = null;
@@ -49,7 +50,7 @@ export class ContactDetailPageComponent implements OnInit {
       this.contact = result.data;
       this.initializeForm();
     } else {
-      this.handleError(result.error);
+      this.handleError(`There's no contact with id=${id}`);
     }
 
     this.isLoading = false;
@@ -71,6 +72,7 @@ export class ContactDetailPageComponent implements OnInit {
         this.phoneValidator(),
       ]),
     });
+    this.isInitialized = true;
   }
 
   get name() {
@@ -131,7 +133,11 @@ export class ContactDetailPageComponent implements OnInit {
   }
 
   handleError(error: any) {
-    this.errorText = error.message ? error.message : JSON.stringify(error);
+    this.errorText = error.message
+      ? error.message
+      : typeof error == 'string'
+      ? error
+      : JSON.stringify(error);
   }
 
   onCancelClick(event: any) {
