@@ -8,7 +8,7 @@
 ## Install JSON-Server
 
 - Install this package globally by running ` npm install -g json-server`.
-- Run `json-server db.json --middlewares middleware.js` to start the server using `db.json` as it's database.
+- Run `json-server db.json --middlewares middleware.js` or `npx json-server db.json --middlewares middleware.js` to start the server using `db.json` as it's database.
 - By default, it will be running on `http://localhost:3000`.
 - If you want to change where the fake server runs, you will need to run using `json-server db.json --middlewares middleware.js --port [port-number-of-your-choice]` and change the `BASE_URL` value in `api-constants.ts` file.
 
