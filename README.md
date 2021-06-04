@@ -4,6 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## JSON-Server
 
+Run `npm install` after cloning or downloading.
+
+## JSON-Server
+
 Run `json-server db.json --middlewares middleware.js` for a fake server. Make sure it runs on `http://localhost:3000`. However, if you have a dedicated server for these contacts or if u decided not to run on port 3000, you will need to change BASE_URL value in "api-constants.ts" according to your configuration.
 
 ## Development server
