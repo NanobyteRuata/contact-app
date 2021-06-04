@@ -43,12 +43,11 @@ export class ContactListPageComponent implements OnInit {
     this.getContacts(value);
   }
 
-  onContactDelete(event: any) {
-    console.log('on contact delete: ', event);
+  onContactDelete = (event: any) => {
     if (event.success) {
       this.contactList = this.contactList.filter(
         (contact: Contact) => contact.id != event.data.id
       );
     }
-  }
+  };
 }

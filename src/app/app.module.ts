@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -28,6 +29,7 @@ import { ContactListPageComponent } from './page/contact-list-page/contact-list-
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
   ],
   providers: [],

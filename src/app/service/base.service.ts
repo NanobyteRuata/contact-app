@@ -71,7 +71,7 @@ export class BaseService {
   error(err: any): any {
     return {
       success: false,
-      error: err,
+      error: err.error,
     };
   }
 }

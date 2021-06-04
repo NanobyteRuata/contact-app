@@ -15,6 +15,20 @@ export class ContactService {
     );
   }
 
+  getContactByEmail(email: string) {
+    return this._baseService.get(`contacts?email=${email}`);
+  }
+
+  getContactByPhone(phone: string) {
+    return this._baseService.get(
+      `contacts?phone_like=${phone
+        .split('+')
+        .join('%2B')
+        .split(' ')
+        .join('%20')}`
+    );
+  }
+
   getContactById(id: number) {
     return this._baseService.get(`contacts/${id}`);
   }

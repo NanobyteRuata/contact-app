@@ -2,7 +2,11 @@
   <div class="col">
     <div class="card mt-3">
       <div class="card-body">
-        <form class="col">
+        <form
+          class="col"
+          [formGroup]="contactForm"
+          (ngSubmit)="onSaveClick($event)"
+        >
           <div *ngIf="errorText != null" class="row">
             <div class="alert alert-danger col" role="alert">
               <i class="fas fa-info-circle"></i> {{ errorText }}
@@ -18,12 +22,14 @@
                 type="text"
                 placeholder="Name"
                 class="form-control"
-                [ngClass]="nameInvalidText ? 'is-invalid' : ''"
-                [(ngModel)]="contact.name"
-                [ngModelOptions]="{ standalone: true }"
+                [ngClass]="isNameInvalid ? 'is-invalid' : ''"
+                formControlName="name"
               />
-              <div *ngIf="nameInvalidText" class="text-danger">
-                {{ nameInvalidText }}
+              <div *ngIf="isNameInvalid" class="invalid-feedback">
+                <div *ngIf="name.errors?.required">Name is required.</div>
+                <div *ngIf="name.errors?.minlength">
+                  Name must be at least 4 characters long.
+                </div>
               </div>
             </div>
           </div>
@@ -38,12 +44,15 @@
                 type="text"
                 placeholder="Email"
                 class="form-control"
-                [ngClass]="emailInvalidText ? 'is-invalid' : ''"
-                [(ngModel)]="contact.email"
-                [ngModelOptions]="{ standalone: true }"
+                [ngClass]="isEmailInvalid ? 'is-invalid' : ''"
+                formControlName="email"
               />
-              <div *ngIf="emailInvalidText" class="text-danger">
-                {{ emailInvalidText }}
+              <div *ngIf="isEmailInvalid" class="invalid-feedback">
+                <div *ngIf="email.errors?.required">Name is required.</div>
+                <div *ngIf="email.errors?.email">Email is invalid.</div>
+                <div *ngIf="emailInvalidText">
+                  {{ emailInvalidText }}
+                </div>
               </div>
             </div>
           </div>
@@ -58,15 +67,25 @@
                 type="tel"
                 placeholder="Phone number"
                 class="form-control"
-                [ngClass]="phoneInvalidText ? 'is-invalid' : ''"
-                [(ngModel)]="contact.phone"
-                [ngModelOptions]="{ standalone: true }"
+                [ngClass]="isPhoneInvalid ? 'is-invalid' : ''"
+                formControlName="phone"
               />
-              <div *ngIf="phoneInvalidText" class="text-danger">
-                {{ phoneInvalidText }}
+              <div *ngIf="isPhoneInvalid" class="invalid-feedback">
+                <div *ngIf="phone.errors?.required">Name is required.</div>
+                <div *ngIf="phone.errors?.minlength">
+                  Phone must be at least 8 characters long.
+                </div>
+                <div *ngIf="phone.errors?.invalidPhone">
+                  Phone number is invalid.
+                </div>
+                <div *ngIf="phoneInvalidText">
+                  {{ phoneInvalidText }}
+                </div>
               </div>
             </div>
           </div>
+
+          <!-- Actions -->
           <div class="row-12 text-right">
             <button
               type="button"
@@ -77,9 +96,16 @@
             </button>
             <button
               type="submit"
+              [disabled]="isLoading"
               class="btn btn-success"
-              (click)="onSaveClick($event)"
+              [disabled]="!contactForm.valid"
             >
+              <span
+                *ngIf="isLoading"
+                class="spinner-border spinner-border-sm"
+                role="status"
+                aria-hidden="true"
+              ></span>
               <i class="fas fa-save"></i> Save
             </button>
           </div>
