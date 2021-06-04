@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Contact } from 'src/app/model/contact-model';
 import { ContactService } from 'src/app/service/contact.service';
 
@@ -15,10 +14,7 @@ export class ContactListPageComponent implements OnInit {
 
   searchText: string = '';
 
-  constructor(
-    private _contactService: ContactService,
-    private _router: Router
-  ) {}
+  constructor(private _contactService: ContactService) {}
 
   ngOnInit(): void {
     this.getContacts();
@@ -45,6 +41,7 @@ export class ContactListPageComponent implements OnInit {
 
   onContactDelete = (event: any) => {
     if (event.success) {
+      // delete from existing list without fetching all data again
       this.contactList = this.contactList.filter(
         (contact: Contact) => contact.id != event.data.id
       );

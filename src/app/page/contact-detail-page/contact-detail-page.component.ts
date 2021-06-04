@@ -35,6 +35,9 @@ export class ContactDetailPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // according to "app-routing-module",
+    // paramData will be null if navigated through "/contacts/new" path
+    // and will have data if navigated through "/contacts/details/:id"
     let paramData: any = this._route.snapshot.paramMap.get('id');
     if (paramData != null) {
       this.getContactData(Number(paramData));
@@ -127,6 +130,7 @@ export class ContactDetailPageComponent implements OnInit {
     this._cdf.detectChanges();
   }
 
+  // only accepts numbers, white space, "+" and "-"
   phoneValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       let phoneRegex: RegExp = new RegExp(/^[-+\s/0-9]*$/);

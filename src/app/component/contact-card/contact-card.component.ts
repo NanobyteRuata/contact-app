@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ContactCardComponent implements OnInit {
   @Input() contact: Contact = new Contact();
+
   @Output() onDelete = new EventEmitter();
 
   isDeleteLoading: boolean = false;
@@ -26,6 +27,7 @@ export class ContactCardComponent implements OnInit {
     this._router.navigate([`/contacts/details/`, this.contact.id]);
   }
 
+  // show delete confirm dialog
   onDeleteClick() {
     this.showDeleteConfirm = true;
   }

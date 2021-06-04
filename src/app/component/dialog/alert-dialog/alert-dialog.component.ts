@@ -15,6 +15,7 @@ import {
   styleUrls: ['./alert-dialog.component.scss'],
 })
 export class AlertDialogComponent implements OnInit {
+  @Input() show: boolean = false;
   @Input() title: string = '';
   @Input() content: string = '';
   @Input() type: string = 'info';
@@ -22,22 +23,12 @@ export class AlertDialogComponent implements OnInit {
   @Input() showCancel: boolean = false;
   @Input() okText: string = 'Ok';
   @Input() cancelText: string = 'Cancel';
+
   @Output() showChange = new EventEmitter();
   @Output() onCancel = new EventEmitter();
   @Output() onOk = new EventEmitter();
 
-  @ViewChild('hiddenToggle') hiddenToggle: ElementRef;
-  private _show: boolean = false;
-  @Input() set show(value: boolean) {
-    this._show = value;
-    this.hiddenToggle?.nativeElement.click();
-    this._cdf.detectChanges();
-  }
-  get show() {
-    return this._show;
-  }
-
-  constructor(private _cdf: ChangeDetectorRef) {}
+  constructor() {}
 
   ngOnInit(): void {}
 

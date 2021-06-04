@@ -92,9 +92,8 @@
             </button>
             <button
               type="submit"
-              [disabled]="isLoading"
               class="btn btn-success"
-              [disabled]="!contactForm.valid"
+              [disabled]="isLoading || !contactForm.valid"
             >
               <span
                 *ngIf="isLoading"
@@ -111,6 +110,7 @@
   </div>
 </div>
 
+<!-- Api Response error Dialog -->
 <app-alert-dialog
   [(show)]="showAlert"
   title="Error"
