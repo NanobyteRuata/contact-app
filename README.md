@@ -1,6 +1,6 @@
 # Contact App
 
-## Initialize
+## Install Angular and Packages
 
 - This project is created using Angular version 11. If you don't have Angular installed in your local machine, please follow instructions [here](https://angular.io/guide/setup-local)
 - Navigate into the project root directory after cloning or downloading and run `npm install`.
