@@ -8,7 +8,7 @@ Run `npm install` after cloning or downloading.
 
 ## JSON-Server
 
-Run `json-server db.json --middlewares middleware.js` for a fake server. Make sure it runs on `http://localhost:3000`. However, if you have a dedicated server for these contacts or if u decided not to run on port `3000`, you will need to change `BASE_URL` value in `api-constants.ts` according to your configuration.
+Run `json-server db.json --middlewares middleware.js` for a fake server. Make sure it runs on `http://localhost:3000`. However, if you have a dedicated server for these contacts or if u decided not to run on port `3000`, you will need to change `BASE_URL` value in `api-constants.ts` according to your configuration. For more info about json-server, visit: [Json-Server](https://www.npmjs.com/package/json-server#add-middlewares) 
 
 ## Development server
 
