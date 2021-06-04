@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./contact-card.component.scss'],
 })
 export class ContactCardComponent implements OnInit {
-  @Input() contact: Contact;
+  @Input() contact: Contact = new Contact();
   @Output() onDelete = new EventEmitter();
 
   isDeleteLoading: boolean = false;
