@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.0.
 
-## JSON-Server
+## Initial Setup
 
 Run `npm install` after cloning or downloading.
 
