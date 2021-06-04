@@ -34,7 +34,7 @@ export class ContactDetailPageComponent implements OnInit {
 
   ngOnInit(): void {
     let paramData: any = this._route.snapshot.paramMap.get('id');
-    if (paramData != 'new') {
+    if (paramData != null) {
       this.getContactData(Number(paramData));
     } else {
       this.initializeForm();

@@ -22,7 +22,7 @@ export class ContactCardComponent implements OnInit {
   ngOnInit(): void {}
 
   onEditClick() {
-    this._router.navigate([`/contacts`, this.contact.id]);
+    this._router.navigate([`/contacts/details/`, this.contact.id]);
   }
 
   async onDeleteClick() {
